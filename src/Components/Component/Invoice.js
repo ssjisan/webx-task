@@ -2,7 +2,7 @@ import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 
-export default function Invoice({ order, handleRemove }) {
+export default function Invoice({ order, handleRemove, total }) {
   return (
     <div class="px-4 mt-2">
       <div class="row g-4">
@@ -43,9 +43,24 @@ export default function Invoice({ order, handleRemove }) {
           </table>
           <table class="table table-borderless">
             <td>Items</td>
-            <td style={{fontWeight:"bold"}}>{order.length}({order.length}.00)</td>
+            <td style={{ fontWeight: "bold" }}>
+              {order.length}({order.length}.00)
+            </td>
             <td>Total</td>
-            <td>1</td>
+            <td style={{ fontWeight: "bold" }}>{total}</td>
+          </table>
+          <table class="table table-borderless">
+            <td>Order Tax</td>
+            <td style={{ fontWeight: "bold" }}>0.00</td>
+            <td>Discount</td>
+            <td style={{ fontWeight: "bold" }}>(0.00)0.00</td>
+          </table>
+          <table
+            class="table table-borderless"
+            style={{ backgroundColor: "black", color: "white" }}
+          >
+            <td>Total Payable</td>
+            <td style={{ fontWeight: "bold" }}>{total}.00</td>
           </table>
         </div>
       </div>
