@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "productName": "Cannon 1100D",
+        "imgUrl":"https://i.ibb.co/PZJ2Lk3/cannon.png",
+        "details":"12.2 MP CMOS sensor",
+        "price": 2250
+    },
+    {
+        "id": 2,
+        "productName": "Computer Set 1",
+        "imgUrl":"https://i.ibb.co/dfxVJSM/computer-set-1.png",
+        "details":"Core i-5, 4GB ram, 500GB hdd",
+        "price": 2500
+    },
+    {
+        "id": 3,
+        "productName": "Computer Set 2",
+        "imgUrl":"https://i.ibb.co/9h8j8J1/computer-set-2.png",
+        "details":"core i-3, 2GB ram, 250GB hdd",
+        "price": 1799
+    },
+    {
+        "id": 4,
+        "productName": "Hard Disk",
+        "imgUrl":"https://i.ibb.co/sC33JRV/hardDisk.png",
+        "details":"500GB",
+        "price": 500
+    },
+    {
+        "id": 5,
+        "productName": "Keyboard",
+        "imgUrl":"https://i.ibb.co/vqjPwwm/keyboard.png",
+        "details":"A4 tech",
+        "price": 200
+    },
+    {
+        "id": 6,
+        "productName": "Laptop",
+        "imgUrl":"https://i.ibb.co/28vWL90/laptop.png",
+        "details":"HP Spectre",
+        "price": 3000
+    },
+    {
+        "id": 7,
+        "productName": "Mouse",
+        "imgUrl":"https://i.ibb.co/h7WzRXy/mouse.png",
+        "details":"Gaming Mouse",
+        "price": 200
+    },
+    {
+        "id": 8,
+        "productName": "Ram",
+        "imgUrl":"https://i.ibb.co/6DrMHht/ram.png",
+        "details":"8GB",
+        "price": 800
+    }
+]
+
+
+
+
+
+
+
+
