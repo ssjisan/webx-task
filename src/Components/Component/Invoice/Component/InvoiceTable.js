@@ -30,7 +30,9 @@ export default function InvoiceTable({ order, handleRemove, total }) {
                 IT-{i + 1}-{data.productName} <BiEdit />
               </th>
               <td>{data.price}.00</td>
-              <td>1</td>
+              <td>
+                <input defaultValue={i+1}  type="number" min="1" style={{width:"50px"}}/>
+              </td>
               <td>{data.price}.00</td>
               <td>
                 <AiOutlineClose
