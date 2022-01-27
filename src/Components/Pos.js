@@ -8,7 +8,7 @@ export default function Pos() {
   const handleAdd = (id) => {
     let newArray = [];
     let array = product.find((data) => data.id === +id);
-    newArray.push(...order, array);
+    newArray.unshift(array,...order);
     setOrder(newArray);
   };
   const handleRemove=(index)=>{

@@ -2,7 +2,7 @@ import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 
-export default function Invoice({ order,handleRemove }) {
+export default function Invoice({ order, handleRemove }) {
   return (
     <div class="px-4 mt-2">
       <div class="row g-4">
@@ -31,15 +31,21 @@ export default function Invoice({ order,handleRemove }) {
                   <th scope="row">
                     IT-{i + 1}-{data.productName}
                   </th>
-                  <td>{data.price}</td>
-                  <td>Otto</td>
-                  <td>{data.price}</td>
+                  <td>{data.price}.00</td>
+                  <td>1</td>
+                  <td>{data.price}.00</td>
                   <td>
-                    <AiOutlineClose onClick={()=>handleRemove(i)}/>
+                    <AiOutlineClose onClick={() => handleRemove(i)} />
                   </td>
                 </tr>
               ))}
             </tbody>
+          </table>
+          <table class="table table-borderless">
+            <td>Items</td>
+            <td style={{fontWeight:"bold"}}>{order.length}({order.length}.00)</td>
+            <td>Total</td>
+            <td>1</td>
           </table>
         </div>
       </div>
