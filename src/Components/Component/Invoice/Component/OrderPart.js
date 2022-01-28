@@ -1,63 +1,27 @@
-import React from "react";
-
-export default function OrderPart({ handleOrder }) {
+import React, { useContext } from "react";
+import { DataContext } from "../../../ContextAPI/DataProcessing";
+import "./Style/OrderPartStyle.css";
+export default function OrderPart() {
+  const { handleOrder } = useContext(DataContext)
   return (
     <table class="table table-bordered">
       <thead>
         <tr>
-          <td
-            style={{
-              backgroundColor: "#ECA341",
-              fontWeight: "bold",
-              color: "white",
-              textAlign: "center",
-            }}
-          >
+          <td className="title" id="suspand">
             Suspand
           </td>
-          <td
-            style={{
-              backgroundColor: "#4FB7D7",
-              fontWeight: "bold",
-              color: "white",
-              textAlign: "center",
-            }}
-            onClick={handleOrder}
-          >
+          <td className="title" id="order" onClick={handleOrder}>
             Order
           </td>
-          <td
-            rowspan="2"
-            style={{
-              backgroundColor: "#51AD4E",
-              color: "white",
-              fontWeight: "bold",
-              textAlign: "center",
-              verticalAlign: "middle",
-            }}
-          >
+          <td className="title" id="payment" rowspan="2">
             Payment
           </td>
         </tr>
         <tr>
-          <td
-            style={{
-              backgroundColor: "#D34943",
-              fontWeight: "bold",
-              color: "white",
-              textAlign: "center",
-            }}
-          >
+          <td className="title" id="cancel">
             Cancel
           </td>
-          <td
-            style={{
-              backgroundColor: "#3A7EC2",
-              fontWeight: "bold",
-              color: "white",
-              textAlign: "center",
-            }}
-          >
+          <td className="title" id="bill">
             Bill
           </td>
         </tr>

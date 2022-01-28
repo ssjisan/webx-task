@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
-import "./Style/InvoiceTableStyle.css"
+import "./Style/InvoiceTableStyle.css";
+import { DataContext } from "../../../ContextAPI/DataProcessing";
 
-export default function InvoiceTable({ order, handleRemove, total }) {
+export default function InvoiceTable() {
+  const { order, handleRemove, total } = useContext(DataContext)
   return (
-    <div >
+    <div>
       <table className="table table-bordered">
         <thead>
-          <tr
-            style={{
-             
-            }}
-            className="tableHeading"
-          >
+          <tr className="tableHeading">
             <th>Product</th>
             <th>Price</th>
             <th>Qty</th>
@@ -41,7 +38,10 @@ export default function InvoiceTable({ order, handleRemove, total }) {
               </td>
               <td>{data.price}.00</td>
               <td>
-                <button className="btn btn-link" onClick={() => handleRemove(i)}>
+                <button
+                  className="btn btn-link"
+                  onClick={() => handleRemove(i)}
+                >
                   <AiOutlineClose />
                 </button>
               </td>
@@ -50,55 +50,25 @@ export default function InvoiceTable({ order, handleRemove, total }) {
         </tbody>
       </table>
       <table className="table table-borderless">
-        <tr className="detailsTableHeading" >
-          <td style={{ textAlign: "left", padding: "2%" }}>Items</td>
-          <td
-            style={{
-              fontWeight: "bold",
-              textAlign: "right",
-              padding: "2%",
-            }}
-          >
+        <tr className="detailsTableHeading">
+          <td className="dataTitle">Items</td>
+          <td className="data">
             {order.length}({order.length}.00)
           </td>
-          <td style={{ textAlign: "left", padding: "2%" }}>Total</td>
-          <td
-            style={{
-              fontWeight: "bold",
-              textAlign: "right",
-              padding: "2%",
-            }}
-          >
-            {total}
-          </td>
+          <td className="dataTitle">Total</td>
+          <td className="data">{total}</td>
         </tr>
-        <tr
-          style={{
-            borderTop: "2px solid #DEDEDD",
-            backgroundColor: "#fff",
-          }}
-        >
-          <td style={{ textAlign: "left", padding: "2%" }}>
-            Order Tax
-          </td>
-          <td className="orderData">
-            0.00
-          </td>
-          <td className="discount">
-            Discount 
-          </td>
-          <td className="discountData">
-            (0.00)0.00
-          </td>
+        <tr className="orderCountHeader">
+          <td className="dataTitle">Order Tax</td>
+          <td className="data">0.00</td>
+          <td className="dataTitle">Discount</td>
+          <td className="data">(0.00)0.00</td>
         </tr>
       </table>
-      <table
-        className="table table-borderless totalPayableTable">
+      <table className="table table-borderless totalPayableTable">
         <tr>
           <td className="totalPayable">Total Payable</td>
-          <td className="totalPayableData">
-            {total}.00
-          </td>
+          <td className="data">{total}.00</td>
         </tr>
       </table>
     </div>

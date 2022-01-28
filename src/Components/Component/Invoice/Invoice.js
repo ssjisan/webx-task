@@ -1,24 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import CustomerOption from "./Component/CustomerOption";
 import WarehouseOption from "./Component/WarehouseOption";
 import SearchOption from "./Component/SearchOption";
 import InvoiceTable from "./Component/InvoiceTable";
 import OrderPart from "./Component/OrderPart";
-import "./Style/InvoiceStyle.css"
-export default function Invoice({ order, handleRemove, total, handleOrder }) {
+import "./Style/InvoiceStyle.css";
+import { DataContext } from "../../ContextAPI/DataProcessing";
+export default function Invoice() {
   return (
-    <div class="px-4 mt-2">
-      <div class="row g-4">
-        <div class="col-md-12 col-sm-12" className="mainDiv"> 
+    <div className="px-4 mt-2">
+      <div className="row g-4">
+        <div className="col-md-12 col-sm-12 mainDiv">
           <CustomerOption />
           <WarehouseOption />
           <SearchOption />
-          <InvoiceTable
-            order={order}
-            handleRemove={handleRemove}
-            total={total}
-          />
-          <OrderPart handleOrder={handleOrder} />
+          <InvoiceTable/>
+          <OrderPart/>
         </div>
       </div>
     </div>

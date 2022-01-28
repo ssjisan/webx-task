@@ -1,0 +1,21 @@
+.title {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+#suspand {
+  background-color: #eca341;
+}
+#order {
+  background-color: #4fb7d7;
+}
+#payment {
+  background-color: #51ad4e;
+  vertical-align: middle;
+}
+#cancel {
+  background-color: #d34943;
+}
+#bill {
+  background-color: #3a7ec2;
+}

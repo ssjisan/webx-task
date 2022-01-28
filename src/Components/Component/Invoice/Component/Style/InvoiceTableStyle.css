@@ -10,20 +10,12 @@
   border-top: 2px solid #dededd;
   background-color: #fff;
 }
-.orderData {
-  font-weight: bold;
-  text-align: right;
-  padding: 2%;
+
+.orderCountHeader {
+  border-top: 2px solid #dededd;
+  background-color: #fff;
 }
-.discount {
-  text-align: left;
-  padding: 2%;
-}
-.discountData {
-  font-weight: bold;
-  text-align: right;
-  padding: 2%;
-}
+
 .totalPayableTable {
   background-color: black;
   color: white;
@@ -32,8 +24,12 @@
 .totalPayable {
   padding: 2%;
 }
-.totalPayableData {
+.data {
   font-weight: bold;
   text-align: right;
+  padding: 2%;
+}
+.dataTitle {
+  text-align: left;
   padding: 2%;
 }
