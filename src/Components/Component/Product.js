@@ -3,11 +3,21 @@ import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import { DataContext } from "../ContextAPI/DataProcessing";
 
 export default function Product() {
-  const { product, handleAdd } = useContext(DataContext)
+  const { product, handleAdd,search } = useContext(DataContext);
   return (
     <div className="px-4 mt-2">
       <div className="row g-4">
-        {product.map((data) => (
+        {product.filter((data) => {
+              if (search === "") {
+                return data;
+              } else if (
+                data.productName
+                  .toLowerCase()
+                  .includes(search.toLowerCase())
+              ) {
+                return data;
+              }
+            }).map((data) => (
           <div
             className="col-lg-3 col-md-3 col-sm-3"
             style={{ cursor: "pointer", width: "9.2rem" }}

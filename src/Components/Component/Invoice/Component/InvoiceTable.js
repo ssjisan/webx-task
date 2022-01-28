@@ -4,6 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import "./Style/InvoiceTableStyle.css";
 import { DataContext } from "../../../ContextAPI/DataProcessing";
+import { ToastContainer } from "react-toastify";
 
 export default function InvoiceTable() {
   const { order, handleRemove, total } = useContext(DataContext)
@@ -21,7 +22,7 @@ export default function InvoiceTable() {
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{height:"330px"}}>
           {order?.map((data, i) => (
             <tr>
               <th scope="row">
@@ -71,6 +72,7 @@ export default function InvoiceTable() {
           <td className="data">{total}.00</td>
         </tr>
       </table>
+      <ToastContainer />
     </div>
   );
 }
