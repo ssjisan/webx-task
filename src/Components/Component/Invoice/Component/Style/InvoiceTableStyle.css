@@ -1,0 +1,39 @@
+.tableHeading {
+  background-color: #3b7fc5;
+  color: white;
+  border-bottom: 2px solid transparent;
+}
+.quantityBox {
+  width: 50px;
+}
+.detailsTableHeading {
+  border-top: 2px solid #dededd;
+  background-color: #fff;
+}
+.orderData {
+  font-weight: bold;
+  text-align: right;
+  padding: 2%;
+}
+.discount {
+  text-align: left;
+  padding: 2%;
+}
+.discountData {
+  font-weight: bold;
+  text-align: right;
+  padding: 2%;
+}
+.totalPayableTable {
+  background-color: black;
+  color: white;
+  margin: 0;
+}
+.totalPayable {
+  padding: 2%;
+}
+.totalPayableData {
+  font-weight: bold;
+  text-align: right;
+  padding: 2%;
+}

@@ -1,29 +1,28 @@
 import React from "react";
-import { BsPlusCircleFill,BsEye } from "react-icons/bs";
-import { GrEdit } from "react-icons/gr";
-
+import { BsPlusCircleFill, BsEye,BsPencil } from "react-icons/bs";
+import "./Style/CustomerOptionStyle.css";
 export default function CustomerOption() {
   return (
-    <div class="input-group mb-3">
+    <div className="input-group mb-3">
       <select
-        class="custom-select "
+        className="custom-select "
         id="inputGroupSelect02"
-        style={{ width: "76%", padding: "2%" }}
+        className="select"
       >
         <option selected>Walk in customer</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
-      <div class="input-group-append" style={{ display: "flex" }}>
-        <label class="input-group-text" for="inputGroupSelect02">
-          <GrEdit style={{ color: "#4FB7D7" }} />
+      <div className="input-group-append buttonGroup">
+        <label className="input-group-text">
+          <BsPencil className="buttonIcon" />
         </label>
-        <label class="input-group-text" for="inputGroupSelect02">
-          <BsEye style={{ color: "#4FB7D7" }} />
+        <label className="input-group-text">
+          <BsEye className="buttonIcon" />
         </label>
-        <label class="input-group-text" for="inputGroupSelect02">
-          <BsPlusCircleFill style={{ color: "#4FB7D7" }} />
+        <label className="input-group-text">
+          <BsPlusCircleFill className="buttonIcon" />
         </label>
       </div>
     </div>

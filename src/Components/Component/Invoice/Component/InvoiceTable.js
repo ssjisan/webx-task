@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
+import "./Style/InvoiceTableStyle.css"
+
 export default function InvoiceTable({ order, handleRemove, total }) {
   return (
-    <div>
-      <table class="table table-bordered">
+    <div >
+      <table className="table table-bordered">
         <thead>
           <tr
             style={{
-              backgroundColor: "#3B7FC5",
-              color: "white",
-              borderBottom: "2px solid transparent",
+             
             }}
+            className="tableHeading"
           >
             <th>Product</th>
             <th>Price</th>
@@ -23,34 +24,33 @@ export default function InvoiceTable({ order, handleRemove, total }) {
             </th>
           </tr>
         </thead>
-        <tbody style={{height:"300px"}}>
+        <tbody>
           {order?.map((data, i) => (
             <tr>
               <th scope="row">
-                IT-{i + 1}-{data.productName} <BiEdit />
+                IT-{i + 1}-{data.productName}({data.details}) <BiEdit />
               </th>
               <td>{data.price}.00</td>
               <td>
-                <input defaultValue={i+1}  type="number" min="1" style={{width:"50px"}}/>
+                <input
+                  defaultValue={1}
+                  type="number"
+                  min="1"
+                  className="quantityBox"
+                />
               </td>
               <td>{data.price}.00</td>
               <td>
-                <AiOutlineClose
-                  onClick={() => handleRemove(i)}
-                  style={{ cursor: "pointer" }}
-                />
+                <button className="btn btn-link" onClick={() => handleRemove(i)}>
+                  <AiOutlineClose />
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <table class="table table-borderless" style={{ marginBottom: 0}}>
-        <tr
-          style={{
-            borderTop: "2px solid #DEDEDD",
-            backgroundColor: "#fff",
-          }}
-        >
+      <table className="table table-borderless">
+        <tr className="detailsTableHeading" >
           <td style={{ textAlign: "left", padding: "2%" }}>Items</td>
           <td
             style={{
@@ -79,53 +79,28 @@ export default function InvoiceTable({ order, handleRemove, total }) {
           }}
         >
           <td style={{ textAlign: "left", padding: "2%" }}>
-            Order Tax <BiEdit />
+            Order Tax
           </td>
-          <td
-            style={{
-              fontWeight: "bold",
-              textAlign: "right",
-              padding: "2% 2% 0% 2%",
-            }}
-          >
+          <td className="orderData">
             0.00
           </td>
-          <td style={{ textAlign: "left", padding: "2%" }}>
-            <BiEdit />
+          <td className="discount">
+            Discount 
           </td>
-          <td
-            style={{
-              fontWeight: "bold",
-              textAlign: "right",
-              padding: "2%",
-            }}
-          >
+          <td className="discountData">
             (0.00)0.00
           </td>
         </tr>
       </table>
       <table
-        class="table table-borderless"
-        style={{
-          backgroundColor: "black",
-          color: "white",
-          margin: 0,
-        }}
-      >
+        className="table table-borderless totalPayableTable">
         <tr>
-          <td style={{ padding: "2%" }}>Total Payable</td>
-          <td
-            style={{
-              fontWeight: "bold",
-              textAlign: "right",
-              padding: "2%",
-            }}
-          >
+          <td className="totalPayable">Total Payable</td>
+          <td className="totalPayableData">
             {total}.00
           </td>
         </tr>
       </table>
-      
     </div>
   );
 }

@@ -1,0 +1,10 @@
+.select {
+  width: 76%;
+  padding: 2%;
+}
+.buttonGroup{
+    display: flex
+}
+.buttonIcon{
+    color: #4FB7D7
+}

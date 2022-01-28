@@ -24,22 +24,40 @@ export default function Product({ product, handleAdd }) {
           {" "}
           <div
             class="col-4 col-sm-4 col-md-4 col-lg-4"
-            style={{ backgroundColor: "#78A6D4", display:"flex",justifyContent:"center",alignItems: "center"}}
+            style={{
+              backgroundColor: "#78A6D4",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <IoChevronBackOutline style={{color:"white"}}/>
+            <IoChevronBackOutline style={{ color: "white" }} />
           </div>
           <div
             class="col-4 col-sm-4 col-md-4 col-lg-4"
-            style={{ backgroundColor: "#3A7EC2", display:"flex",justifyContent:"center",alignItems: "center",padding: ".5%"}}
+            style={{
+              backgroundColor: "#3A7EC2",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: ".5%",
+            }}
           >
             {" "}
-            <p style={{color:"white",fontWeight:"bold"}}>Sell Gift Card</p>{" "}
+            <p style={{ color: "white", fontWeight: "bold" }}>
+              Sell Gift Card
+            </p>{" "}
           </div>{" "}
           <div
             class="col-4 col-sm-4 col-md-4 col-lg-4"
-            style={{ backgroundColor: "#78A6D4", display:"flex",justifyContent:"center",alignItems: "center"}}
+            style={{
+              backgroundColor: "#78A6D4",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            <IoChevronForwardOutline style={{color:"white"}}/>
+            <IoChevronForwardOutline style={{ color: "white" }} />
           </div>
         </div>
       </div>
