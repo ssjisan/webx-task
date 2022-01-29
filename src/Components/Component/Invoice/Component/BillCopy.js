@@ -16,7 +16,7 @@ export default function BillCopy() {
     },
   };
   return (
-    <Modal isOpen={modalIsOpen} style={customStyles}>
+    <Modal isOpen={modalIsOpen} style={customStyles} ariaHideApp={false}>
       <table className="table table-bordered">
         <thead>
           <tr className="tableHeading">
@@ -28,7 +28,7 @@ export default function BillCopy() {
         </thead>
         <tbody style={{ height: "330px" }}>
           {order?.map((data, i) => (
-            <tr>
+            <tr key={data.id}>
               <th scope="row">
                 IT-{i + 1}-{data.productName}({data.details})
               </th>
@@ -38,7 +38,6 @@ export default function BillCopy() {
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </td>
-
               <td>1</td>
               <td>
                 {data.price
@@ -51,15 +50,17 @@ export default function BillCopy() {
         </tbody>
       </table>
       <table className="table table-borderless totalPayableTable">
-        <tr>
-          <td className="totalPayable">Total Payable</td>
-          <td className="data">
-            {total
-              .toFixed(2)
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td className="totalPayable">Total Payable</td>
+            <td className="data">
+              {total
+                .toFixed(2)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </td>
+          </tr>
+        </tbody>
       </table>
       <div
         className="mt-4"

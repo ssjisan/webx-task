@@ -8,33 +8,36 @@ import BillCopy from "./BillCopy";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 
 export default function OrderPart() {
-  const { openBill, handleOrder,notify,modalIsOpen } = useContext(DataContext);
-  
+  const { openBill, handleOrder, notify, modalIsOpen } =
+    useContext(DataContext);
+
   return (
-    <table class="table table-bordered">
+    <div>
       <ToastContainer />
-      <thead>
-        <tr>
-          <td className="title" id="suspand">
-            Suspand
-          </td>
-          <td className="title" id="order" onClick={handleOrder}>
-            Order
-          </td>
-          <td className="title" id="payment" rowspan="2">
-           <FaRegMoneyBillAlt/>  Payment 
-          </td>
-        </tr>
-        <tr>
-          <td className="title" id="cancel" onClick={notify}>
-            Cancel
-          </td>
-          <td className="title" id="bill" onClick={openBill}>
-            Bill
-          </td>
-        </tr>
-      </thead>
-      {modalIsOpen && <BillCopy />}
-    </table>
+      <table className="table table-bordered">
+        <tbody>
+          <tr>
+            <td className="title" id="suspand">
+              Suspand
+            </td>
+            <td className="title" id="order" onClick={handleOrder}>
+              Order
+            </td>
+            <td className="title" id="payment" rowSpan="2">
+              <FaRegMoneyBillAlt /> Payment
+            </td>
+          </tr>
+          <tr>
+            <td className="title" id="cancel" onClick={notify}>
+              Cancel
+            </td>
+            <td className="title" id="bill" onClick={openBill}>
+              Bill
+            </td>
+          </tr>
+        </tbody>
+        {modalIsOpen && <BillCopy />}
+      </table>
+    </div>
   );
 }

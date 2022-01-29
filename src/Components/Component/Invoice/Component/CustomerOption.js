@@ -8,7 +8,7 @@ export default function CustomerOption() {
         className="custom-select select"
         id="select"
       >
-        <option selected>Walk in customer</option>
+        <option value="0">Walk in customer</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
