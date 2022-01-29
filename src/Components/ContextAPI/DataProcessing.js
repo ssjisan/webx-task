@@ -18,15 +18,16 @@ export default function DataProcessing({ children }) {
   const [search, setSearch] = useState("");
   const [total, setTotal] = useState(0);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [extra,setExtra]=useState("")
+  const [productModalIsOpen, setProductModalIsOpen] = useState(false);
+  const [viewProduct, setViewProduct] = useState([]);
   const handleAdd = (id) => {
     let newArray = [];
     let array = product.find((data) => data.id === +id);
     newArray.unshift(array, ...order);
     setOrder(newArray);
     setSearch("");
-    localStorage.setItem('orderItems', JSON.stringify(newArray))
-    localStorage.getItem('orderItems')
+    localStorage.setItem("orderItems", JSON.stringify(newArray));
+    localStorage.getItem("orderItems");
   };
   const handleRemove = (index) => {
     let newArray = order.filter((data, i) => i !== +index);
@@ -52,9 +53,9 @@ export default function DataProcessing({ children }) {
         timer: 2000,
       });
     } else {
-      setIsOpen(false)
+      setIsOpen(false);
       setOrder([]);
-      localStorage.removeItem('orderItems');
+      localStorage.removeItem("orderItems");
       Swal.fire({
         icon: "success",
         title: "The Order is Saved Successfully",
@@ -63,13 +64,26 @@ export default function DataProcessing({ children }) {
       });
     }
   };
+
   const notify = () => {
     if (order.length <= 0) {
-      toast.warn("Nothing to cancel", {
+      toast.warn("Nothing to suspand", {
         theme: "colored",
       });
     } else {
-      toast.success("Order cancel", {
+      toast.success("Order suspand", {
+        theme: "colored",
+      });
+      setOrder([]);
+    }
+  };
+  const suspand = () => {
+    if (order.length <= 0) {
+      toast.warn("Nothing to suspand", {
+        theme: "colored",
+      });
+    } else {
+      toast.success("Order suspand", {
         theme: "colored",
       });
       setOrder([]);
@@ -78,21 +92,25 @@ export default function DataProcessing({ children }) {
   const handleOnChange = (event) => {
     setSearch(event.target.value);
   };
-  const openBill=()=>{
-    if(order.length<= 0 ){
+  const openBill = () => {
+    if (order.length <= 0) {
       toast.warn("No bill to show", {
         theme: "colored",
       });
+    } else {
+      setIsOpen(true);
     }
-    else{
-      setIsOpen(true)
-    }
-  }
-  const closeModal=()=>{
-    setIsOpen(false)
-  }
-  const manualInput=(event,id)=>{
-    setExtra(event.target.value,id);
+  };
+  const closeModal = () => {
+    setProductModalIsOpen(false)
+    setIsOpen(false);
+  };
+  const productView=(id)=>{
+    let newArray= product.filter((data=>
+      data.id === +id
+    ))
+    setViewProduct(newArray)
+    setProductModalIsOpen(true)
   }
   return (
     <DataContext.Provider
@@ -110,7 +128,10 @@ export default function DataProcessing({ children }) {
         setIsOpen,
         modalIsOpen,
         closeModal,
-        manualInput,
+        suspand,
+        productView,
+        productModalIsOpen,
+        viewProduct
       }}
     >
       {children}

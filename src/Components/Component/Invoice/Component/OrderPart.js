@@ -8,7 +8,7 @@ import BillCopy from "./BillCopy";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 
 export default function OrderPart() {
-  const { openBill, handleOrder, notify, modalIsOpen } =
+  const { openBill, handleOrder, notify, modalIsOpen,suspand } =
     useContext(DataContext);
 
   return (
@@ -17,7 +17,7 @@ export default function OrderPart() {
       <table className="table table-bordered">
         <tbody>
           <tr>
-            <td className="title" id="suspand">
+            <td className="title" id="suspand" onClick={suspand}>
               Suspand
             </td>
             <td className="title" id="order" onClick={handleOrder}>

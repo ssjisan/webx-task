@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./Component/Product";
+import Product from "./Component/Product/Product";
 import Invoice from "./Component/Invoice/Invoice";
 import DataProcessing from "./ContextAPI/DataProcessing";
 export default function Pos() {

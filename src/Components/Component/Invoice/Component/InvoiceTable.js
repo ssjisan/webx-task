@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose,AiOutlineEye } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import "./Style/InvoiceTableStyle.css";
 import { DataContext } from "../../../ContextAPI/DataProcessing";
 import { ToastContainer } from "react-toastify";
+import ViewProduct from "./ViewProduct";
 
 export default function InvoiceTable() {
-  const { order, handleRemove, total, manualInput } = useContext(DataContext);
+  const { order, handleRemove, total, manualInput,productView,productModalIsOpen } = useContext(DataContext);
   return (
     <div>
       <table className="table table-bordered">
@@ -26,7 +27,7 @@ export default function InvoiceTable() {
           {order?.map((data, i) => (
             <tr key={data.id}>
               <th scope="row">
-                IT-{i + 1}-{data.productName}({data.details}) <BiEdit />
+                IT-{i + 1}-{data.productName}({data.details}) <AiOutlineEye onClick={()=>productView(data.id)}/> <BiEdit />
               </th>
               <td>
                 {data.price
@@ -40,6 +41,7 @@ export default function InvoiceTable() {
                   type="number"
                   min="1"
                   className="quantityBox"
+                  onChange={()=>manualInput(i)}
                 />
               </td>
               <td>
@@ -51,6 +53,7 @@ export default function InvoiceTable() {
               <td>
                 <button
                   className="btn btn-link"
+                  
                   onClick={() => handleRemove(i)}
                 >
                   <AiOutlineClose />
@@ -97,6 +100,7 @@ export default function InvoiceTable() {
         </tbody>
       </table>
       <ToastContainer />
+      {productModalIsOpen && <ViewProduct/>}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
-import { DataContext } from "../ContextAPI/DataProcessing";
-
+import { DataContext } from "../../ContextAPI/DataProcessing";
+import "./Style/ProductStyle.css";
 export default function Product() {
   const { product, handleAdd, search } = useContext(DataContext);
   return (
@@ -18,20 +18,20 @@ export default function Product() {
             }
           })
           .map((data) => (
-            <div
-              className="col-lg-3 col-md-3 col-sm-3"
-              style={{ cursor: "pointer", width: "9.2rem" }}
-              key={data.id}
-            >
-              <div className="p-1 card" onClick={() => handleAdd(data.id)}>
-                <img
-                  src={data.imgUrl}
-                  className="card-img-top"
-                  alt={data.productName}
-                />
-                <p className="card-text">{data.productName}</p>
+              <div
+                className="col-lg-3 col-md-3 col-sm-3"
+                style={{ cursor: "pointer", width: "9.2rem" }}
+                key={data.id}
+              >
+                <div className="p-1 card" id="tooltip" onClick={() => handleAdd(data.id)} >
+                  <img
+                    src={data.imgUrl}
+                    className="card-img-top"
+                    alt={data.productName}
+                  />
+                  <p className="card-text">{data.productName}</p>
+                </div>
               </div>
-            </div>
           ))}
         <div className="row g-4" style={{ marginTop: "50%" }}>
           {" "}
