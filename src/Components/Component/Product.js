@@ -7,7 +7,7 @@ export default function Product() {
   return (
     <div className="px-4 mt-2">
       <div className="row g-4">
-        {product.filter((data) => {
+        {product?.filter((data) => {
               if (search === "") {
                 return data;
               } else if (

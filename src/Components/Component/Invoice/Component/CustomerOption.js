@@ -5,9 +5,8 @@ export default function CustomerOption() {
   return (
     <div className="input-group mb-3">
       <select
-        className="custom-select "
-        id="inputGroupSelect02"
-        className="select"
+        className="custom-select select"
+        id="select"
       >
         <option selected>Walk in customer</option>
         <option value="1">One</option>

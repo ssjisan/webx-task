@@ -1,26 +1,23 @@
 import React, { useContext } from "react";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import { DataContext } from "../../../ContextAPI/DataProcessing";
 
 export default function BillCopy() {
-  const {modalIsOpen,closeModal,order,handleOrder} =useContext(DataContext)
+  const { modalIsOpen, closeModal, order, handleOrder, total } =
+    useContext(DataContext);
   const customStyles = {
     content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
     },
   };
   return (
-    <Modal
-        isOpen={modalIsOpen}
-        style={customStyles}
-
-      >
-        <table className="table table-bordered">
+    <Modal isOpen={modalIsOpen} style={customStyles}>
+      <table className="table table-bordered">
         <thead>
           <tr className="tableHeading">
             <th>Product</th>
@@ -29,23 +26,52 @@ export default function BillCopy() {
             <th>Subtotal</th>
           </tr>
         </thead>
-        <tbody style={{height:"330px"}}>
+        <tbody style={{ height: "330px" }}>
           {order?.map((data, i) => (
             <tr>
               <th scope="row">
                 IT-{i + 1}-{data.productName}({data.details})
               </th>
-              <td>{data.price}.00</td>
               <td>
-                1
+                {data.price
+                  .toFixed(2)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </td>
-              <td>{data.price}.00</td>
+
+              <td>1</td>
+              <td>
+                {data.price
+                  .toFixed(2)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <button onClick={closeModal} className="btn btn-info">Return</button>
-      <button onClick={handleOrder} className="btn btn-success">Confirm Order</button>
-      </Modal>
+      <table className="table table-borderless totalPayableTable">
+        <tr>
+          <td className="totalPayable">Total Payable</td>
+          <td className="data">
+            {total
+              .toFixed(2)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </td>
+        </tr>
+      </table>
+      <div
+        className="mt-4"
+        style={{ display: "flex", justifyContent: "space-between" }}
+      >
+        <button onClick={closeModal} className="btn btn-info">
+          Return
+        </button>
+        <button onClick={handleOrder} className="btn btn-success">
+          Confirm Order
+        </button>
+      </div>
+    </Modal>
   );
 }

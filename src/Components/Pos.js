@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Product from "./Component/Product";
 import Invoice from "./Component/Invoice/Invoice";
-import Swal from "sweetalert2";
 import DataProcessing from "./ContextAPI/DataProcessing";
 export default function Pos() {
   return (

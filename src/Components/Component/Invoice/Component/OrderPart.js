@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
 import { ToastContainer } from "react-toastify";
 import { DataContext } from "../../../ContextAPI/DataProcessing";
-import "./Style/OrderPartStyle.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./Style/OrderPartStyle.css";
 import BillCopy from "./BillCopy";
+
+import { FaRegMoneyBillAlt } from "react-icons/fa";
 
 export default function OrderPart() {
   const { openBill, handleOrder,notify,modalIsOpen } = useContext(DataContext);
   
   return (
     <table class="table table-bordered">
+      <ToastContainer />
       <thead>
         <tr>
           <td className="title" id="suspand">
@@ -19,7 +22,7 @@ export default function OrderPart() {
             Order
           </td>
           <td className="title" id="payment" rowspan="2">
-            Payment
+           <FaRegMoneyBillAlt/>  Payment 
           </td>
         </tr>
         <tr>
@@ -31,7 +34,6 @@ export default function OrderPart() {
           </td>
         </tr>
       </thead>
-      <ToastContainer />
       {modalIsOpen && <BillCopy />}
     </table>
   );

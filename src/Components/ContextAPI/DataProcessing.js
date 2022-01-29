@@ -18,7 +18,7 @@ export default function DataProcessing({ children }) {
   const [search, setSearch] = useState("");
   const [total, setTotal] = useState(0);
   const [modalIsOpen, setIsOpen] = useState(false);
-
+  const [extra,setExtra]=useState("")
   const handleAdd = (id) => {
     let newArray = [];
     let array = product.find((data) => data.id === +id);
@@ -91,6 +91,9 @@ export default function DataProcessing({ children }) {
   const closeModal=()=>{
     setIsOpen(false)
   }
+  const manualInput=(event,id)=>{
+    setExtra(event.target.value,id);
+  }
   return (
     <DataContext.Provider
       value={{
@@ -106,7 +109,8 @@ export default function DataProcessing({ children }) {
         openBill,
         setIsOpen,
         modalIsOpen,
-        closeModal
+        closeModal,
+        manualInput,
       }}
     >
       {children}
