@@ -67,11 +67,11 @@ export default function DataProcessing({ children }) {
 
   const notify = () => {
     if (order.length <= 0) {
-      toast.warn("Nothing to suspand", {
+      toast.warn("Nothing to cancel", {
         theme: "colored",
       });
     } else {
-      toast.success("Order suspand", {
+      toast.success("Order canceled", {
         theme: "colored",
       });
       setOrder([]);
@@ -83,7 +83,7 @@ export default function DataProcessing({ children }) {
         theme: "colored",
       });
     } else {
-      toast.success("Order suspand", {
+      toast.success("Order suspanded", {
         theme: "colored",
       });
       setOrder([]);
@@ -102,16 +102,14 @@ export default function DataProcessing({ children }) {
     }
   };
   const closeModal = () => {
-    setProductModalIsOpen(false)
+    setProductModalIsOpen(false);
     setIsOpen(false);
   };
-  const productView=(id)=>{
-    let newArray= product.filter((data=>
-      data.id === +id
-    ))
-    setViewProduct(newArray)
-    setProductModalIsOpen(true)
-  }
+  const productView = (id) => {
+    let newArray = product.filter((data) => data.id === +id);
+    setViewProduct(newArray);
+    setProductModalIsOpen(true);
+  };
   return (
     <DataContext.Provider
       value={{
@@ -131,7 +129,7 @@ export default function DataProcessing({ children }) {
         suspand,
         productView,
         productModalIsOpen,
-        viewProduct
+        viewProduct,
       }}
     >
       {children}
